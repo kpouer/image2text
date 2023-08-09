@@ -68,3 +68,9 @@ In that case you will create a
 ## Licence
 
 The project is released under MIT licence
+
+## Dependencies
+
+This project depends on 
+- image (https://crates.io/crates/image)
+- rgb2ansi256 (https://crates.io/crates/rgb2ansi256)
