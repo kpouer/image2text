@@ -1,4 +1,5 @@
 FROM rust:alpine3.18 as builder
+WORKDIR /
 COPY src src
 COPY cargo.toml Cargo.toml
 RUN apk update && \
