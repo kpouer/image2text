@@ -63,8 +63,6 @@ image2ascii -bg 40 -f example/simpsons.jpg
 ```
 ![simpsons](example/simpsons_color_black_bg.png)
 
-In that case you will create a 
-
 ## Licence
 
 The project is released under MIT licence
