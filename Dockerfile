@@ -5,4 +5,4 @@ COPY cargo.toml Cargo.toml
 RUN apk --no-cache add musl-dev && \
     cargo build --release
 FROM alpine:3.18
-COPY --from=builder /target/release/image2ascii /usr/local/bin/image2ascii
+COPY --from=builder /target/release/image2text /usr/local/bin/image2text
