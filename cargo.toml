@@ -1,11 +1,11 @@
 [package]
-name = "image2ascii"
+name = "image2text"
 version = "1.0.0"
 edition = "2021"
 authors = ["Matthieu Casanova"]
 description = "Convert an image to ascii art"
-homepage = "https://github.com/kpouer/image2ascii"
-repository = "https://github.com/kpouer/image2ascii"
+homepage = "https://github.com/kpouer/image2text"
+repository = "https://github.com/kpouer/image2text"
 license = "MIT"
 keywords = ["image", "ascii", "art"]
 categories = ["image", "ascii", "art"]

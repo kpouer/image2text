@@ -6,7 +6,7 @@ It can work in black & white or color.
 ## Usage
 
 ```
-Usage: image2ascii [OPTIONS] [FILE]
+Usage: image2text [OPTIONS] [FILE]
 convert an image to ascii art
 
   -f,  --file <file>              the image filename you want to conver
@@ -48,18 +48,18 @@ You can choose to invert the image. In that case the character density will inve
 ## Examples
 
 ```bash
-image2ascii -f example/simpsons.jpg
+image2text -f example/simpsons.jpg
 ```
 
 ![simpsons](example/simpsons_color.png)
 
 ```bash
-image2ascii -i -c bw -f example/simpsons.jpg
+image2text -i -c bw -f example/simpsons.jpg
 ```
 ![simpsons](example/simpsons_bw.png)
 
 ```bash
-image2ascii -bg 40 -f example/simpsons.jpg
+image2text -bg 40 -f example/simpsons.jpg
 ```
 ![simpsons](example/simpsons_color_black_bg.png)
 

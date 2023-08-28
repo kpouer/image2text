@@ -76,8 +76,8 @@ fn parse_options() -> Result<Params, String> {
 }
 
 fn usage() {
-    println!("image2ascii");
-    println!("Usage: image2ascii [OPTIONS] [FILE]");
+    println!("image2text");
+    println!("Usage: image2text [OPTIONS] [FILE]");
     println!("convert an image to ascii art");
     println!();
     println!("  -f,  --file <file>              the image filename you want to conver");
