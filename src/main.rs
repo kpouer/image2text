@@ -10,7 +10,7 @@ mod ansi;
 
 fn main() {
     if let Ok(params) = parse_options() {
-        if params.filename == "" {
+        if params.filename.is_empty() {
             println!("no filename given");
             return;
         }
@@ -30,13 +30,13 @@ fn parse_options() -> Result<Params, String> {
         let current_param = &args[i];
         if current_param == "-w" || current_param == "--width" {
             params.width = args[i + 1].parse::<u16>().unwrap();
-            i = i + 2;
+            i += 2;
         } else if current_param == "-h" || current_param == "--height" {
             params.height = args[i + 1].parse::<u16>().unwrap();
-            i = i + 2;
+            i += 2;
         } else if current_param == "-c" || current_param == "--color" {
             let next_arg = args[i + 1].clone();
-            i = i + 2;
+            i += 2;
             if let Ok(color_mode) = next_arg.parse::<color::ColorMode>() {
                 params.color_mode = color_mode;
             } else {
@@ -48,31 +48,31 @@ fn parse_options() -> Result<Params, String> {
             } else {
                 return Err("pixel mode should be ascii, ascii2 or unicode".to_string());
             }
-            i = i + 2;
+            i += 2;
         } else if current_param == "-cp" || current_param == "--custom-pixel" {
             params.pixels = args[i + 1].clone();
-            i = i + 2;
+            i += 2;
         } else if current_param == "-cr" || current_param == "--char-size-ratio" {
             params.char_size_ratio = args[i + 1].parse::<f32>().unwrap();
-            i = i + 2;
+            i += 2;
         } else if current_param == "-i" || current_param == "--inverted" {
             params.inverted = true;
             i = i + 1;
         } else if current_param == "-bg" || current_param == "--background-color" {
             params.background_color = args[i + 1].to_string();
-            i = i + 2;
+            i += 2;
         } else if current_param == "-f" || current_param == "--file" {
             params.filename = args[i + 1].to_string();
-            i = i + 2;
+            i += 2;
         } else {
             return Err(format!("unknown option {}", current_param));
         }
     }
 
-    if params.filename == "" {
+    if params.filename.is_empty() {
         return Err("image file should not be empty".to_string());
     }
-    return Ok(params);
+    Ok(params)
 }
 
 fn usage() {

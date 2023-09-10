@@ -16,7 +16,7 @@ pub(crate) fn image_2_ascii(params: &Params) -> String {
 fn convert_image_2_ascii(image: &image::DynamicImage, params: &Params) -> String {
     let (width, height) = image.dimensions();
     let mut result = String::new();
-    if params.background_color.len() != 0 {
+    if !params.background_color.is_empty() {
         result.push_str(format!("\x1b[{}m", params.background_color).as_str());
     }
     result.push_str(ANSI_BOLD_ON); // set bold
@@ -35,7 +35,7 @@ fn convert_image_2_ascii(image: &image::DynamicImage, params: &Params) -> String
             let pixel = &params.pixels[pixel_index..pixel_index + 1];
             result.push_str(pixel);
         }
-        result.push_str("\n");
+        result.push('\n');
     }
     result.push_str(ANSI_RESET);
     result
