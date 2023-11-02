@@ -9,8 +9,7 @@ pub(crate) fn image_2_ascii(params: &Params) -> String {
         return image.unwrap_err();
     }
     let image = image.unwrap();
-    let result = convert_image_2_ascii(&image, params);
-    result
+    convert_image_2_ascii(&image, params)
 }
 
 fn convert_image_2_ascii(image: &image::DynamicImage, params: &Params) -> String {
@@ -45,15 +44,12 @@ fn get_pixel(pixel_color: &Rgba<u8>, params: &Params) -> usize {
     let gray = rgb_2_grayscale(&pixel_color) as usize;
     let len = params.pixels.len();
     if params.inverted {
-        let pixel_index = len - 1 - gray * len / 256;
-        pixel_index
+        len - 1 - gray * len / 256
     } else {
-        let pixel_index = gray * len / 256;
-        pixel_index
+        gray * len / 256
     }
 }
 
 fn rgb_2_grayscale(pixel: &Rgba<u8>) -> u8 {
-    let grayscale = (pixel[0] as f32 * 0.299 + pixel[1] as f32 * 0.587 + pixel[2] as f32 * 0.114) as u8;
-    grayscale
+    (pixel[0] as f32 * 0.299 + pixel[1] as f32 * 0.587 + pixel[2] as f32 * 0.114) as u8
 }
