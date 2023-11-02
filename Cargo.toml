@@ -8,7 +8,7 @@ homepage = "https://github.com/kpouer/image2text"
 repository = "https://github.com/kpouer/image2text"
 license = "MIT"
 keywords = ["image", "ascii", "art"]
-categories = ["image", "ascii", "art"]
+categories = ["multimedia::images"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
