@@ -57,7 +57,7 @@ fn parse_options() -> Result<Params, String> {
             i += 2;
         } else if current_param == "-i" || current_param == "--inverted" {
             params.inverted = true;
-            i = i + 1;
+            i += 1;
         } else if current_param == "-bg" || current_param == "--background-color" {
             params.background_color = args[i + 1].to_string();
             i += 2;
