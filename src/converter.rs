@@ -41,7 +41,7 @@ fn convert_image_2_ascii(image: &image::DynamicImage, params: &Params) -> String
 }
 
 fn get_pixel(pixel_color: &Rgba<u8>, params: &Params) -> usize {
-    let gray = rgb_2_grayscale(&pixel_color) as usize;
+    let gray = rgb_2_grayscale(pixel_color) as usize;
     let len = params.pixels.len();
     if params.inverted {
         len - 1 - gray * len / 256
