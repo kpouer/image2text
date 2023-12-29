@@ -5,11 +5,10 @@ use crate::params::Params;
 
 pub(crate) fn image_2_ascii(params: &Params) -> String {
     let image = open_image(&params.filename, params.width, params.height, params.char_size_ratio);
-    if image.is_err() {
-        return image.unwrap_err();
+    match image {
+        Ok(image) => convert_image_2_ascii(&image, params),
+        Err(err) => err,
     }
-    let image = image.unwrap();
-    convert_image_2_ascii(&image, params)
 }
 
 fn convert_image_2_ascii(image: &image::DynamicImage, params: &Params) -> String {
@@ -41,7 +40,7 @@ fn convert_image_2_ascii(image: &image::DynamicImage, params: &Params) -> String
 }
 
 fn get_pixel(pixel_color: &Rgba<u8>, params: &Params) -> usize {
-    let gray = rgb_2_grayscale(&pixel_color) as usize;
+    let gray = rgb_2_grayscale(pixel_color) as usize;
     let len = params.pixels.len();
     if params.inverted {
         len - 1 - gray * len / 256
