@@ -5,11 +5,10 @@ use crate::params::Params;
 
 pub(crate) fn image_2_ascii(params: &Params) -> String {
     let image = open_image(&params.filename, params.width, params.height, params.char_size_ratio);
-    if image.is_err() {
-        return image.unwrap_err();
+    match image {
+        Ok(image) => convert_image_2_ascii(&image, params),
+        Err(err) => err,
     }
-    let image = image.unwrap();
-    convert_image_2_ascii(&image, params)
 }
 
 fn convert_image_2_ascii(image: &image::DynamicImage, params: &Params) -> String {
