@@ -1,10 +1,15 @@
-use image::{GenericImageView, Rgba};
 use crate::ansi::{ANSI_BOLD_ON, ANSI_RESET};
 use crate::image_manager::open_image;
 use crate::params::Params;
+use image::{GenericImageView, Rgba};
 
 pub(crate) fn image_2_ascii(params: &Params) -> String {
-    let image = open_image(&params.filename, params.width, params.height, params.char_size_ratio);
+    let image = open_image(
+        &params.filename,
+        params.width,
+        params.height,
+        params.char_size_ratio,
+    );
     match image {
         Ok(image) => convert_image_2_ascii(&image, params),
         Err(err) => err,

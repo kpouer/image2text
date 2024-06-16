@@ -1,12 +1,12 @@
-use pixel::PixelMode;
 use crate::params::Params;
+use pixel::PixelMode;
 
-mod converter;
-mod params;
-mod image_manager;
-mod color;
-mod pixel;
 mod ansi;
+mod color;
+mod converter;
+mod image_manager;
+mod params;
+mod pixel;
 
 fn main() {
     if let Ok(params) = parse_options() {

@@ -1,6 +1,11 @@
 use image::GenericImageView;
 
-pub(crate) fn open_image(filename: &str, width: u16, height: u16, char_size_ratio: f32) -> Result<image::DynamicImage, String> {
+pub(crate) fn open_image(
+    filename: &str,
+    width: u16,
+    height: u16,
+    char_size_ratio: f32,
+) -> Result<image::DynamicImage, String> {
     let image = image::open(filename);
 
     if image.is_err() {
@@ -17,7 +22,11 @@ pub(crate) fn open_image(filename: &str, width: u16, height: u16, char_size_rati
         // width has to be computed depending on height
         let ratio = height as f32 / image_height;
         let width = (char_size_ratio * image_width * ratio) as u16;
-        return Ok(image.resize(width as u32, height as u32, image::imageops::FilterType::Lanczos3));
+        return Ok(image.resize(
+            width as u32,
+            height as u32,
+            image::imageops::FilterType::Lanczos3,
+        ));
     }
 
     if height == 0 {
@@ -28,6 +37,10 @@ pub(crate) fn open_image(filename: &str, width: u16, height: u16, char_size_rati
         return Ok(image.resize_exact(_width, _height, image::imageops::FilterType::Lanczos3));
     }
 
-    let image = image.resize(width as u32, height as u32, image::imageops::FilterType::Lanczos3);
+    let image = image.resize(
+        width as u32,
+        height as u32,
+        image::imageops::FilterType::Lanczos3,
+    );
     Ok(image)
 }

@@ -27,7 +27,7 @@ impl ColorMode {
         match self {
             ColorMode::BlackAndWhite => None,
             ColorMode::Ansi => Some(ansi(color)),
-            ColorMode::TrueColor => Some(truecolor(color))
+            ColorMode::TrueColor => Some(truecolor(color)),
         }
     }
 }
