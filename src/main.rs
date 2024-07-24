@@ -50,7 +50,7 @@ fn parse_options() -> Result<Params, String> {
             }
             i += 2;
         } else if current_param == "-cp" || current_param == "--custom-pixel" {
-            params.pixels = args[i + 1].clone();
+            params.pixels.clone_from(&args[i + 1]);
             i += 2;
         } else if current_param == "-cr" || current_param == "--char-size-ratio" {
             params.char_size_ratio = args[i + 1].parse::<f32>().unwrap();
